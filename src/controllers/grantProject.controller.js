@@ -5,6 +5,29 @@ const models = require('../models/index');
 
 async function createProject(req, res, next) {
   try {
+    const projectId = req.params;
+    let user_id = req.user.id;
+    const municipalityId = req.user.municipality && req.user.municipality.id;
+    let projectData = req.body;
+    projectData.creator_id = user_id;
+    projectData.ward_id = req.user.ward_id;
+    projectData.municipality_id = municipalityId;
+    projectData.isSubmitted = true;
+    
+    let project = await models.grant_projects.update({projectData}, {where:{id: projectId}});
+
+    res.send({
+      data: { project },
+      message: 'Project Created Successfully',
+      success: true,
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function draftProject(req, res, next) {
+  try {
     let user_id = req.user.id;
     const municipalityId = req.user.municipality && req.user.municipality.id;
     let projectData = req.body;
@@ -101,5 +124,6 @@ module.exports = {
     createProject,
     getProjectById,
     getProjectByWard,
-    getProject
+    getProject,
+    draftProject
 }

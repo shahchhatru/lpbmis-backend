@@ -67,23 +67,23 @@ module.exports = {
       },
       project_name_nepali: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       budget: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       projectDuration: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       population_Benefits: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       project_details: {
         type: Sequelize.JSON,
