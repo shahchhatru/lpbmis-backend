@@ -65,6 +65,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      phone: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       project_name_nepali: {
         type: Sequelize.STRING,
         allowNull: true,

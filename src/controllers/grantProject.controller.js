@@ -85,8 +85,8 @@ async function getProjectByWard(req, res, next) {
 
 async function getProjectById(req, res, next) {
   try {
-    const projectId = req.params;
-    
+    const {projectId} = req.params;
+    console.log(projectId);
     let project = await models.grant_projects.findOne({where: {id: projectId}});
 
     res.send({
