@@ -124,6 +124,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
+      isVerified: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       type: {
         type: Sequelize.STRING,
         allowNull: true,

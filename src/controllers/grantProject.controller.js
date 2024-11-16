@@ -101,13 +101,17 @@ async function getProjectById(req, res, next) {
 
 async function updateProject(req, res, next) {
   try {
-    const projectId = req.params;
+    const {projectId} = req.params;
     let projectData = req.body;
-    let projectdetail = await models.grant_projects.findOne({where: {id: projectId}});
-    if(project_detail) {
+    let userId = req.user.id;
+    let project_detail = await models.grant_projects.findOne({where: {id: projectId}});
 
+    if((project_detail && project_detail.isVerified ===  'true') || project_detail.creator_id == userId) {
+      res.send({
+        message: 'You cannot modify this project',
+        success: true
+      })
     }
-
     let project = await models.grant_projects.update({projectData},{where: {id: projectId}});
 
     res.send({
@@ -125,5 +129,6 @@ module.exports = {
     getProjectById,
     getProjectByWard,
     getProject,
-    draftProject
+    draftProject,
+    updateProject
 }
