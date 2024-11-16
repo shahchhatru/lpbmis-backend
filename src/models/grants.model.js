@@ -16,10 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      evaluator_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
       ward_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
@@ -38,6 +34,22 @@ module.exports = (sequelize, DataTypes) => {
       },
       budget: {
         type: DataTypes.STRING,
+        allowNull: true,
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      projectDuration: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      population_Benefits: {
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
       project_status: {
@@ -65,7 +77,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       type: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {

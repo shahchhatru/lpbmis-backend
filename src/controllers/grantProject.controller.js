@@ -76,6 +76,27 @@ async function getProjectById(req, res, next) {
   }
 }
 
+async function updateProject(req, res, next) {
+  try {
+    const projectId = req.params;
+    let projectData = req.body;
+    let projectdetail = await models.grant_projects.findOne({where: {id: projectId}});
+    if(project_detail) {
+
+    }
+
+    let project = await models.grant_projects.update({projectData},{where: {id: projectId}});
+
+    res.send({
+      data: { project },
+      message: 'Project Created Successfully',
+      success: true,
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
     createProject,
     getProjectById,
