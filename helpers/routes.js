@@ -9,6 +9,7 @@ module.exports = {
 function route(app) {
   let routes = directory('../src/routes');
   for (let i in routes) {
+    console.log(routes[i]);
     app.use('/', routes[i]);
   }
 }

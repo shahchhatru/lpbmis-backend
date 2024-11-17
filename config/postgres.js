@@ -2,12 +2,12 @@ const dotenv = require('dotenv');
 
 dotenv.config({ path: __dirname + '/../.env' });
 module.exports = {
-  host: process.env.MYSQL_HOST || 'localhost',
-  username: process.env.MYSQL_USERNAME || 'karkipy',
-  password: process.env.MYSQL_PASSWORD || '',
-  database: process.env.MYSQL_DATABASE || 'lpbmis',
-  port: process.env.MYSQL_PORT || '5432',
-  dialect: 'mysql',
+  host: process.env.PG_HOST || 'localhost',
+  username: process.env.PG_USERNAME || 'karkipy',
+  password: process.env.PG_PASSWORD || '',
+  database: process.env.PG_DATABASE || 'lpbmis',
+  port: process.env.PG_PORT || '5432',
+  dialect: 'postgres',
   operatorsAliases: false,
   pool: {
     max: 1000,
@@ -17,7 +17,7 @@ module.exports = {
   },
   logging: false,
   dialectOptions: {
-    // useUTC: false, // for reading from database
+    useUTC: false, // for reading from database
     // ssl: {
     //   rejectUnauthorized: false
     // },
